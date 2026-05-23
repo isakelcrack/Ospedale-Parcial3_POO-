@@ -1,1 +1,6 @@
 /build/
+echo "" >> .gitignore
+echo "# NetBeans" >> .gitignore
+echo "nbproject/private/" >> .gitignore
+echo "nbproject/build/" >> .gitignore
+echo "*.properties" >> .gitignore
