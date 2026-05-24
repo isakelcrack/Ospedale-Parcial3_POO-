@@ -1208,7 +1208,8 @@ public class NewJFrame111 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Response<AppointmentTableDto> response = applicationContext.getAppointmentController()
-                .acceptAppointment(acceptAppointmentComboBox.getItemAt(acceptAppointmentComboBox.getSelectedIndex()));
+                .acceptAppointment(acceptAppointmentComboBox.getItemAt(acceptAppointmentComboBox.getSelectedIndex()),
+                        String.valueOf(doctorProfile.getId()));
         showResponse(response);
         if (response.isSuccess()) {
             loadViewData();
@@ -1244,6 +1245,7 @@ public class NewJFrame111 extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         PrescriptionRequest request = new PrescriptionRequest(
                 prescriptionAppointmentComboBox.getItemAt(prescriptionAppointmentComboBox.getSelectedIndex()),
+                String.valueOf(doctorProfile.getId()),
                 medicationNameField.getText(),
                 doseField.getText(),
                 administrationRouteField.getText(),

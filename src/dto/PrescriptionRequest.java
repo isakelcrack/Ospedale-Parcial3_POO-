@@ -3,6 +3,7 @@ package dto;
 public class PrescriptionRequest {
 
     private String appointmentId;
+    private String doctorId;
     private String medicationName;
     private String dose;
     private String administrationRoute;
@@ -16,7 +17,15 @@ public class PrescriptionRequest {
     public PrescriptionRequest(String appointmentId, String medicationName, String dose,
             String administrationRoute, String treatmentDuration, String additionalInstructions,
             String frequency) {
+        this(appointmentId, null, medicationName, dose, administrationRoute,
+                treatmentDuration, additionalInstructions, frequency);
+    }
+
+    public PrescriptionRequest(String appointmentId, String doctorId, String medicationName, String dose,
+            String administrationRoute, String treatmentDuration, String additionalInstructions,
+            String frequency) {
         this.appointmentId = appointmentId;
+        this.doctorId = doctorId;
         this.medicationName = medicationName;
         this.dose = dose;
         this.administrationRoute = administrationRoute;
@@ -31,6 +40,14 @@ public class PrescriptionRequest {
 
     public void setAppointmentId(String appointmentId) {
         this.appointmentId = appointmentId;
+    }
+
+    public String getDoctorId() {
+        return doctorId;
+    }
+
+    public void setDoctorId(String doctorId) {
+        this.doctorId = doctorId;
     }
 
     public String getMedicationName() {

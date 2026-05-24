@@ -105,9 +105,17 @@ public class AppointmentService {
     }
 
     public Response<AppointmentTableDto> acceptAppointment(String appointmentId) {
+        return acceptAppointment(appointmentId, null);
+    }
+
+    public Response<AppointmentTableDto> acceptAppointment(String appointmentId, String doctorId) {
         Optional<Appointment> appointment = appointmentRepository.findById(appointmentId);
         if (appointment.isEmpty()) {
             return Response.notFound("Cita no encontrada.");
+        }
+        Response<Void> doctorValidation = validateAppointmentDoctor(doctorId, appointment.get());
+        if (!doctorValidation.isSuccess()) {
+            return appointmentError(doctorValidation);
         }
         if (appointment.get().getStatus() != AppointmentStatus.REQUESTED) {
             return Response.badRequest("Solo se pueden aceptar citas en estado REQUESTED.");
@@ -143,6 +151,10 @@ public class AppointmentService {
         if (appointment.isEmpty()) {
             return Response.notFound("Cita no encontrada.");
         }
+        Response<Void> doctorValidation = validateAppointmentDoctor(request.getDoctorId(), appointment.get());
+        if (!doctorValidation.isSuccess()) {
+            return appointmentError(doctorValidation);
+        }
         if (appointment.get().getStatus() == AppointmentStatus.COMPLETED
                 || appointment.get().getStatus() == AppointmentStatus.CANCELED) {
             return Response.badRequest("No se puede reagendar una cita completada o cancelada.");
@@ -171,6 +183,10 @@ public class AppointmentService {
         Optional<Appointment> appointment = appointmentRepository.findById(request.getAppointmentId());
         if (appointment.isEmpty()) {
             return Response.notFound("Cita no encontrada.");
+        }
+        Response<Void> doctorValidation = validateAppointmentDoctor(request.getDoctorId(), appointment.get());
+        if (!doctorValidation.isSuccess()) {
+            return appointmentError(doctorValidation);
         }
         if (appointment.get().getStatus() != AppointmentStatus.PENDING) {
             return Response.badRequest("Solo se pueden completar citas en estado PENDING.");
@@ -239,6 +255,31 @@ public class AppointmentService {
             return Optional.of((Doctor) user.get());
         }
         return Optional.empty();
+    }
+
+    private Response<Void> validateAppointmentDoctor(String doctorId, Appointment appointment) {
+        Response<Void> validation = validationService.validateUserId(doctorId);
+        if (!validation.isSuccess()) {
+            return validation;
+        }
+        Optional<Doctor> doctor = findDoctor(doctorId);
+        if (doctor.isEmpty()) {
+            return Response.notFound("Doctor no encontrado.");
+        }
+        if (appointment.getDoctor().getId() != doctor.get().getId()) {
+            return Response.forbidden("La cita no pertenece al doctor indicado.");
+        }
+        return Response.ok("Doctor valido para la cita.", null);
+    }
+
+    private Response<AppointmentTableDto> appointmentError(Response<Void> response) {
+        if (response.getStatusCode() == 403) {
+            return Response.forbidden(response.getMessage());
+        }
+        if (response.getStatusCode() == 404) {
+            return Response.notFound(response.getMessage());
+        }
+        return Response.badRequest(response.getMessage());
     }
 
     private Optional<Doctor> findAvailableDoctor(Specialty specialty, LocalDateTime datetime) {

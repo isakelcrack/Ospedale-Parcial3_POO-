@@ -54,7 +54,8 @@ public class ApplicationContext {
                 appointmentRepository, userRepository, validationService);
         HospitalizationService hospitalizationService = new HospitalizationService(
                 hospitalizationRepository, appointmentRepository, userRepository, validationService);
-        PrescriptionService prescriptionService = new PrescriptionService(appointmentRepository, validationService);
+        PrescriptionService prescriptionService = new PrescriptionService(
+                appointmentRepository, userRepository, validationService);
         TableDataService tableDataService = new TableDataService(
                 userRepository, appointmentRepository, hospitalizationRepository);
 

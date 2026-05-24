@@ -23,6 +23,10 @@ public class AppointmentController {
         return appointmentService.acceptAppointment(appointmentId);
     }
 
+    public Response<AppointmentTableDto> acceptAppointment(String appointmentId, String doctorId) {
+        return appointmentService.acceptAppointment(appointmentId, doctorId);
+    }
+
     public Response<AppointmentTableDto> cancelAppointment(String appointmentId) {
         return appointmentService.cancelAppointment(appointmentId);
     }
