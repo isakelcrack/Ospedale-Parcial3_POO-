@@ -18,6 +18,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import repository.ModelChangeListener;
 import response.Response;
 
 /**
@@ -30,6 +31,7 @@ public class NewJFrame111 extends javax.swing.JFrame {
     private int x, y;
     private final ApplicationContext applicationContext;
     private final SessionDto currentSession;
+    private final ModelChangeListener modelChangeListener;
     private DoctorProfileDto doctorProfile;
 
     public NewJFrame111(ApplicationContext applicationContext, SessionDto currentSession,
@@ -37,13 +39,20 @@ public class NewJFrame111 extends javax.swing.JFrame {
         this.applicationContext = applicationContext;
         this.currentSession = currentSession;
         this.doctorProfile = doctorProfile;
+        this.modelChangeListener = this::loadViewData;
         initComponents();
         doctorBackButton.setVisible("ADMIN".equals(currentSession.getRole()));
         loadDoctorProfile();
         loadViewData();
-        applicationContext.getEventPublisher().addListener(this::loadViewData);
+        applicationContext.getEventPublisher().addListener(modelChangeListener);
         this.setBackground(new Color(0, 0, 0, 0));
         this.setLocationRelativeTo(null);
+    }
+
+    @Override
+    public void dispose() {
+        applicationContext.getEventPublisher().removeListener(modelChangeListener);
+        super.dispose();
     }
 
     /**
