@@ -41,15 +41,27 @@ public class PrescriptionService {
         } catch (RuntimeException ex) {
             return Response.badRequest("La dosis debe ser numerica.");
         }
+        int treatmentDuration;
+        try {
+            treatmentDuration = Integer.parseInt(request.getTreatmentDuration().trim());
+        } catch (RuntimeException ex) {
+            return Response.badRequest("La duracion del tratamiento debe ser numerica.");
+        }
+        int frequency;
+        try {
+            frequency = Integer.parseInt(request.getFrequency().trim());
+        } catch (RuntimeException ex) {
+            return Response.badRequest("La frecuencia debe ser numerica.");
+        }
 
         Prescription prescription = new Prescription(
                 appointment.get(),
                 request.getMedicationName(),
                 dose,
                 request.getAdministrationRoute(),
-                request.getTreatmentDuration(),
+                treatmentDuration,
                 request.getAdditionalInstructions(),
-                request.getFrequency()
+                frequency
         );
         appointmentRepository.save(appointment.get());
         return Response.created("Medicamento prescrito exitosamente.", toAppointmentDto(prescription.getAppointment()));

@@ -6,16 +6,16 @@ public class PrescriptionRequest {
     private String medicationName;
     private String dose;
     private String administrationRoute;
-    private int treatmentDuration;
+    private String treatmentDuration;
     private String additionalInstructions;
-    private int frequency;
+    private String frequency;
 
     public PrescriptionRequest() {
     }
 
     public PrescriptionRequest(String appointmentId, String medicationName, String dose,
-            String administrationRoute, int treatmentDuration, String additionalInstructions,
-            int frequency) {
+            String administrationRoute, String treatmentDuration, String additionalInstructions,
+            String frequency) {
         this.appointmentId = appointmentId;
         this.medicationName = medicationName;
         this.dose = dose;
@@ -57,11 +57,11 @@ public class PrescriptionRequest {
         this.administrationRoute = administrationRoute;
     }
 
-    public int getTreatmentDuration() {
+    public String getTreatmentDuration() {
         return treatmentDuration;
     }
 
-    public void setTreatmentDuration(int treatmentDuration) {
+    public void setTreatmentDuration(String treatmentDuration) {
         this.treatmentDuration = treatmentDuration;
     }
 
@@ -73,11 +73,11 @@ public class PrescriptionRequest {
         this.additionalInstructions = additionalInstructions;
     }
 
-    public int getFrequency() {
+    public String getFrequency() {
         return frequency;
     }
 
-    public void setFrequency(int frequency) {
+    public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
 }
