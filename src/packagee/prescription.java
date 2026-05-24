@@ -8,7 +8,7 @@ package packagee;
  *
  * @author jjlora
  */
-public class Prescription {
+class Prescription {
     private Appointment appointment;
     private String medicationName;
     private double dose;

@@ -1,0 +1,21 @@
+package app;
+
+import com.formdev.flatlaf.FlatDarkLaf;
+import javax.swing.UIManager;
+import packagee.NewJFrame;
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.setProperty("flatlaf.useNativeLibrary", "false");
+
+        try {
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize LaF");
+        }
+
+        ApplicationContext context = ApplicationContext.bootstrap();
+        java.awt.EventQueue.invokeLater(() -> new NewJFrame(context).setVisible(true));
+    }
+}

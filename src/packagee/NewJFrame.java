@@ -4,12 +4,16 @@
  */
 package packagee;
 
-import com.formdev.flatlaf.FlatDarkLaf;
+import app.ApplicationContext;
+import dto.DoctorProfileDto;
+import dto.LoginRequest;
+import dto.PatientCreateRequest;
+import dto.PatientProfileDto;
+import dto.SessionDto;
 import java.awt.Color;
-import java.time.LocalDate;
-import java.time.Month;
-import java.util.ArrayList;
-import javax.swing.UIManager;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import response.Response;
 
 /**
  *
@@ -19,17 +23,17 @@ import javax.swing.UIManager;
 public class NewJFrame extends javax.swing.JFrame {
 
     private int x, y;
-    private ArrayList<User> users;
-    private ArrayList<Hospitalization> hospitalizations;
-    private ArrayList<Appointment> appointments;
+    private final ApplicationContext applicationContext;
 
     public NewJFrame() {
+        this(ApplicationContext.bootstrap());
+    }
+
+    public NewJFrame(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
         initComponents();
         this.setBackground(new Color(0, 0, 0, 0));
         this.setLocationRelativeTo(null);
-
-        this.users = new ArrayList<>();
-        this.users.add(new Administrator(0, "admin", "admin", "adnim", "admin123"));
     }
 
     /**
@@ -414,73 +418,92 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        User selectedUser = null;
-        for (User user : this.users) {
-            if (jTextField1.getText().equals(user.getUsername())) {
-                selectedUser = user;
-                if (selectedUser.getPassword().equals(jTextField2.getText())) {
-                    if (selectedUser instanceof Administrator ) {
-                        NewJFrame11 admin = new NewJFrame11(selectedUser,users,hospitalizations, appointments);
-                        this.setVisible(false);
-                        admin.setVisible(true);
-                    }
-                    else if (selectedUser instanceof Doctor ) {
-                        NewJFrame111 doctor = new NewJFrame111(selectedUser,(Doctor)selectedUser,users,hospitalizations,appointments);
-                        this.setVisible(false);
-                        doctor.setVisible(true);
-                    }
-                    else {
-                        NewJFrame1 patient = new NewJFrame1(selectedUser,(Patient) selectedUser,users,appointments, hospitalizations);
-                        this.setVisible(false);
-                        patient.setVisible(true);
-                    }
-                }
-            }
+        LoginRequest request = new LoginRequest(jTextField1.getText(), jTextField2.getText());
+        Response<SessionDto> response = applicationContext.getAuthController().login(request);
+        showResponse(response);
+        if (response.isSuccess()) {
+            clearLoginFields();
+            openViewForSession(response.getData());
         }
-
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        String firstname = jTextField3.getText();
-        String lastname = jTextField4.getText();
-        long id = Long.parseLong(jTextField5.getText());
-        boolean gender = (jComboBox1.getSelectedIndex() == 0 ? null : (jComboBox1.getSelectedIndex() == 1 ));
-        String birth = jTextField12.getText();
-        String address = jTextField11.getText();
-        long phone = Long.parseLong(jTextField6.getText());
-        String email = jTextField7.getText();
-        String user = jTextField8.getText();
-        String password = jTextField9.getText();
-        String comPassword = jTextField10.getText();
-        LocalDate birthdate = LocalDate.of(Integer.parseInt(birth.substring(0, 4)), Integer.parseInt(birth.substring(5, 7)), Integer.parseInt(birth.substring(8)));
-        if (comPassword.equals(password)) {
-            users.add(new Patient(id, user, firstname, lastname, password, email, birthdate, gender, phone, address));
+        PatientCreateRequest request = new PatientCreateRequest(
+                jTextField5.getText(),
+                jTextField8.getText(),
+                jTextField3.getText(),
+                jTextField4.getText(),
+                jTextField9.getText(),
+                jTextField10.getText(),
+                jTextField7.getText(),
+                jTextField12.getText(),
+                jComboBox1.getSelectedIndex() == 2,
+                jTextField6.getText(),
+                jTextField11.getText()
+        );
+        Response<PatientProfileDto> response = applicationContext.getPatientController().createPatient(request);
+        showResponse(response);
+        if (response.isSuccess()) {
+            clearPatientRegistrationFields();
         }
-        
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        System.setProperty("flatlaf.useNativeLibrary", "false");
-
-        try {
-            UIManager.setLookAndFeel(new FlatDarkLaf());
-        } catch (Exception ex) {
-            System.err.println("Failed to initialize LaF");
+    private void openViewForSession(SessionDto session) {
+        if ("ADMIN".equals(session.getRole())) {
+            openFrame(new NewJFrame11(applicationContext, session));
+            return;
         }
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewJFrame().setVisible(true);
+        if ("DOCTOR".equals(session.getRole())) {
+            Response<DoctorProfileDto> response = applicationContext.getDoctorController()
+                    .getDoctorProfile(String.valueOf(session.getId()));
+            if (response.isSuccess()) {
+                openFrame(new NewJFrame111(applicationContext, session, response.getData()));
+            } else {
+                showResponse(response);
             }
-        });
+            return;
+        }
+
+        Response<PatientProfileDto> response = applicationContext.getPatientController()
+                .getPatientProfile(String.valueOf(session.getId()));
+        if (response.isSuccess()) {
+            openFrame(new NewJFrame1(applicationContext, session, response.getData()));
+        } else {
+            showResponse(response);
+        }
+    }
+
+    private void openFrame(JFrame frame) {
+        this.setVisible(false);
+        frame.setVisible(true);
+        this.dispose();
+    }
+
+    private void showResponse(Response<?> response) {
+        JOptionPane.showMessageDialog(this, response.getMessage());
+    }
+
+    private void clearLoginFields() {
+        jTextField1.setText("");
+        jTextField2.setText("");
+    }
+
+    private void clearPatientRegistrationFields() {
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField12.setText("");
+        jComboBox1.setSelectedIndex(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
