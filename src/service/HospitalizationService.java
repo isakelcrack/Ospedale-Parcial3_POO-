@@ -73,6 +73,9 @@ public class HospitalizationService {
         if (hospitalization.isEmpty()) {
             return Response.notFound("Hospitalizacion no encontrada.");
         }
+        if (hospitalization.get().getStatus() != HospitalizationStatus.REQUESTED) {
+            return Response.badRequest("Solo se pueden aprobar hospitalizaciones en estado REQUESTED.");
+        }
         hospitalization.get().setStatus(HospitalizationStatus.ONGOING);
         hospitalizationRepository.save(hospitalization.get());
         return Response.ok("Hospitalizacion aprobada exitosamente.", toTableDto(hospitalization.get()));
@@ -83,13 +86,25 @@ public class HospitalizationService {
         if (hospitalization.isEmpty()) {
             return Response.notFound("Hospitalizacion no encontrada.");
         }
+        if (hospitalization.get().getStatus() != HospitalizationStatus.REQUESTED) {
+            return Response.badRequest("Solo se pueden cancelar hospitalizaciones en estado REQUESTED.");
+        }
         hospitalization.get().setStatus(HospitalizationStatus.CANCELED);
         hospitalizationRepository.save(hospitalization.get());
         return Response.ok("Hospitalizacion cancelada exitosamente.", toTableDto(hospitalization.get()));
     }
 
     public Response<HospitalizationTableDto> denyHospitalization(String hospitalizationId) {
-        return cancelHospitalization(hospitalizationId);
+        Optional<Hospitalization> hospitalization = hospitalizationRepository.findById(hospitalizationId);
+        if (hospitalization.isEmpty()) {
+            return Response.notFound("Hospitalizacion no encontrada.");
+        }
+        if (hospitalization.get().getStatus() != HospitalizationStatus.REQUESTED) {
+            return Response.badRequest("Solo se pueden denegar hospitalizaciones en estado REQUESTED.");
+        }
+        hospitalization.get().setStatus(HospitalizationStatus.CANCELED);
+        hospitalizationRepository.save(hospitalization.get());
+        return Response.ok("Hospitalizacion denegada exitosamente.", toTableDto(hospitalization.get()));
     }
 
     public Response<HospitalizationTableDto> createHospitalizationFromAppointment(HospitalizationRequest request) {
@@ -103,13 +118,24 @@ public class HospitalizationService {
         if (!validation.isSuccess()) {
             return Response.badRequest(validation.getMessage());
         }
+        validation = validationService.validateUserId(request.getDoctorId());
+        if (!validation.isSuccess()) {
+            return Response.badRequest(validation.getMessage());
+        }
 
         Optional<Appointment> appointment = appointmentRepository.findById(request.getAppointmentId().trim());
         if (appointment.isEmpty()) {
             return Response.notFound("Cita no encontrada.");
         }
-        if (appointment.get().getStatus() == AppointmentStatus.CANCELED) {
-            return Response.badRequest("No se puede hospitalizar desde una cita cancelada.");
+        Optional<Doctor> requestedDoctor = findDoctor(request.getDoctorId());
+        if (requestedDoctor.isEmpty()) {
+            return Response.notFound("Doctor no encontrado.");
+        }
+        if (appointment.get().getDoctor().getId() != requestedDoctor.get().getId()) {
+            return Response.forbidden("La cita no pertenece al doctor indicado.");
+        }
+        if (appointment.get().getStatus() != AppointmentStatus.PENDING) {
+            return Response.badRequest("Solo se puede hospitalizar desde una cita PENDING.");
         }
 
         Patient patient = appointment.get().getPatient();
