@@ -24,17 +24,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelRound1" alignment="0" max="32767" attributes="0"/>
+          <Component id="loginRootPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="panelRound1" alignment="0" max="32767" attributes="0"/>
+          <Component id="loginRootPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="packagee.PanelRound" name="panelRound1">
+    <Container class="packagee.PanelRound" name="loginRootPanel">
       <Properties>
         <Property name="radius" type="int" value="50"/>
       </Properties>
@@ -42,9 +42,9 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="panelRound2" alignment="0" max="32767" attributes="0"/>
+              <Component id="loginTitleBarPanel" alignment="0" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jTabbedPane1" min="-2" pref="1028" max="-2" attributes="0"/>
+                  <Component id="loginTabbedPane" min="-2" pref="1028" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -52,16 +52,16 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="panelRound2" min="-2" max="-2" attributes="0"/>
+                  <Component id="loginTitleBarPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                  <Component id="loginTabbedPane" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="packagee.PanelRound" name="panelRound2">
+        <Container class="packagee.PanelRound" name="loginTitleBarPanel">
           <Properties>
             <Property name="radius" type="int" value="50"/>
           </Properties>
@@ -75,19 +75,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="closeButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" alignment="1" max="32767" attributes="0"/>
+                  <Component id="closeButton" alignment="1" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="closeButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -107,11 +107,11 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+        <Container class="javax.swing.JTabbedPane" name="loginTabbedPane">
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
           <SubComponents>
-            <Container class="packagee.PanelRound" name="panelRound3">
+            <Container class="packagee.PanelRound" name="loginFormPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Login">
@@ -125,7 +125,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="475" max="32767" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginTitleLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="481" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -135,20 +135,20 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="loginPasswordLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="loginUsernameLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField2" min="-2" pref="152" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" min="-2" pref="152" max="-2" attributes="0"/>
+                                          <Component id="loginPasswordField" min="-2" pref="152" max="-2" attributes="0"/>
+                                          <Component id="loginUsernameField" min="-2" pref="152" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="471" max="-2" attributes="0"/>
-                                  <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="loginEnterButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -159,24 +159,24 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginTitleLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginUsernameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginUsernameField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginPasswordLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginPasswordField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="loginEnterButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="137" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="loginTitleLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="24" style="1"/>
@@ -184,7 +184,7 @@
                     <Property name="text" type="java.lang.String" value="LOGIN"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="loginUsernameField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -194,7 +194,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
+                <Component class="javax.swing.JLabel" name="loginUsernameLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -202,7 +202,7 @@
                     <Property name="text" type="java.lang.String" value="USERNAME"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField2">
+                <Component class="javax.swing.JTextField" name="loginPasswordField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -212,7 +212,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="loginPasswordLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -220,7 +220,7 @@
                     <Property name="text" type="java.lang.String" value="PASSWORD"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="loginEnterButton">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -233,7 +233,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="patientRegisterPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
                   <JTabbedPaneConstraints tabName="Patient register">
@@ -249,73 +249,73 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="450" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterPasswordLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="434" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextField8" min="-2" pref="109" max="-2" attributes="0"/>
-                                      <Component id="jTextField9" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <Component id="patientRegisterUsernameField" min="-2" pref="109" max="-2" attributes="0"/>
+                                      <Component id="patientRegisterPasswordField" min="-2" pref="109" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="473" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterUsernameLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="432" max="-2" attributes="0"/>
-                                  <Component id="jTextField10" min="-2" pref="109" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterConfirmPasswordField" min="-2" pref="109" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
-                                  <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterSaveButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="396" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterBirthdateLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jTextField12" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterBirthdateField" min="-2" pref="109" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterFirstnameLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                          <Component id="jTextField3" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterFirstnameField" min="-2" pref="109" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="patientRegisterLastnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="patientRegisterAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jTextField4" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterLastnameField" min="-2" pref="109" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterIdLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                          <Component id="jTextField5" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterIdField" min="-2" pref="109" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterGenderLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                          <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterGenderComboBox" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <Component id="jTextField11" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterAddressField" min="-2" pref="109" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterPhoneLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jTextField6" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterPhoneField" min="-2" pref="109" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterEmailLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jTextField7" min="-2" pref="109" max="-2" attributes="0"/>
+                                          <Component id="patientRegisterEmailField" min="-2" pref="109" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -329,51 +329,51 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField5" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterFirstnameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterFirstnameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterLastnameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterLastnameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterIdLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterIdField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterGenderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="patientRegisterGenderComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterBirthdateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterBirthdateField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterAddressField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterPhoneLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterPhoneField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterEmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="patientRegisterEmailField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="73" max="32767" attributes="0"/>
-                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterUsernameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterUsernameField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterPasswordLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField9" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterPasswordField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterConfirmPasswordLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jTextField10" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterConfirmPasswordField" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                          <Component id="jButton9" min="-2" max="-2" attributes="0"/>
+                          <Component id="patientRegisterSaveButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="patientRegisterFirstnameLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -381,14 +381,14 @@
                     <Property name="text" type="java.lang.String" value="Firstname"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField3">
+                <Component class="javax.swing.JTextField" name="patientRegisterFirstnameField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="patientRegisterLastnameLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -396,14 +396,14 @@
                     <Property name="text" type="java.lang.String" value="Lastname"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField4">
+                <Component class="javax.swing.JTextField" name="patientRegisterLastnameField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="patientRegisterIdLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -411,14 +411,14 @@
                     <Property name="text" type="java.lang.String" value="ID"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField5">
+                <Component class="javax.swing.JTextField" name="patientRegisterIdField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="patientRegisterGenderLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -426,7 +426,7 @@
                     <Property name="text" type="java.lang.String" value="Gender"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="patientRegisterPhoneLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -434,14 +434,14 @@
                     <Property name="text" type="java.lang.String" value="Phone"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField6">
+                <Component class="javax.swing.JTextField" name="patientRegisterPhoneField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="patientRegisterEmailLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -449,14 +449,14 @@
                     <Property name="text" type="java.lang.String" value="Email"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField7">
+                <Component class="javax.swing.JTextField" name="patientRegisterEmailField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
+                <Component class="javax.swing.JLabel" name="patientRegisterUsernameLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -464,21 +464,21 @@
                     <Property name="text" type="java.lang.String" value="User"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField8">
+                <Component class="javax.swing.JTextField" name="patientRegisterUsernameField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField9">
+                <Component class="javax.swing.JTextField" name="patientRegisterPasswordField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="patientRegisterPasswordLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -486,7 +486,7 @@
                     <Property name="text" type="java.lang.String" value="Password"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel12">
+                <Component class="javax.swing.JLabel" name="patientRegisterConfirmPasswordLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -494,7 +494,7 @@
                     <Property name="text" type="java.lang.String" value="Password confirmation"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField10">
+                <Component class="javax.swing.JTextField" name="patientRegisterConfirmPasswordField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -504,7 +504,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField10ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="jComboBox1">
+                <Component class="javax.swing.JComboBox" name="patientRegisterGenderComboBox">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -521,7 +521,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton9">
+                <Component class="javax.swing.JButton" name="patientRegisterSaveButton">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -532,7 +532,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton9ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
+                <Component class="javax.swing.JLabel" name="patientRegisterAddressLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -540,14 +540,14 @@
                     <Property name="text" type="java.lang.String" value="Address"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField11">
+                <Component class="javax.swing.JTextField" name="patientRegisterAddressField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel14">
+                <Component class="javax.swing.JLabel" name="patientRegisterBirthdateLabel">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
@@ -555,7 +555,7 @@
                     <Property name="text" type="java.lang.String" value="Birthdate"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField12">
+                <Component class="javax.swing.JTextField" name="patientRegisterBirthdateField">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Yu Gothic UI" size="18" style="0"/>
